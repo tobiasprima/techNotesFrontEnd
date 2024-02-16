@@ -1,10 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Public from './components/Public';
-import Login from './components/Login';
+import Login from './features/auth/Login';
 import DashLayout from './components/DashLayout';
-
-
+import Welcome from './features/auth/Welcome';
 
 function App() {
   return (
@@ -14,7 +13,9 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         
         <Route path='/dash' element={<DashLayout></DashLayout>}>
-          
+
+          <Route index element={<Welcome></Welcome>}></Route>
+
         </Route>
       </Route>
     </Routes>
