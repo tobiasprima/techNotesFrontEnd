@@ -10,7 +10,10 @@ const NotesList = () => {
     isSuccess,
     isError,
     error
-  } = useGetNotesQuery();
+  } = useGetNotesQuery(undefined, {
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true,
+  });
 
   let content;
 
