@@ -11,7 +11,6 @@ const UsersList = () => {
     isError,
     error
   } = useGetUsersQuery(undefined, {
-    pollingInterval: 60000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
   });
