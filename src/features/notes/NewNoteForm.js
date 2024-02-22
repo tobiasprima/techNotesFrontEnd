@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 
 
-const NewNoteForm = (users) => {
+const NewNoteForm = ({users}) => {
 
   const [createNewNotes, {
     isLoading,
