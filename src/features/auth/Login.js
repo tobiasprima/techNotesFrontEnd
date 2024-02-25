@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { UseDispatch, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setCredentials } from './authSlice';
 import { useLoginMutation } from './authApiSlice';
 
@@ -68,7 +68,7 @@ const Login = () => {
           className="form__input"
           type="text" 
           id="username"
-          ref={useRef}
+          ref={userRef}
           value={username}
           onChange={handleUserInput}
           autoComplete="off"
