@@ -1,4 +1,3 @@
-import React from 'react'
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -6,8 +5,8 @@ import { setCredentials } from './authSlice';
 import { useLoginMutation } from './authApiSlice';
 
 const Login = () => {
-  const userRef = useRef();
-  const errRef = useRef();
+  const userRef = useRef(null);
+  const errRef = useRef(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
@@ -24,9 +23,6 @@ const Login = () => {
   useEffect(()=> {
     setErrMsg('');
   }, [username, password]);
-
-  const handleUserInput = (e) => setUsername(e.target.value);
-  const handlePasswordInput = (e) => setPassword(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -46,9 +42,15 @@ const Login = () => {
       } else {
         setErrMsg(err.data?.message);
       }
-      errRef.current.focus();
+      if(errRef.current){
+        errRef.current.focus();
+      }
+     
     }
   }
+
+  const handleUserInput = (e) => setUsername(e.target.value);
+  const handlePasswordInput = (e) => setPassword(e.target.value);
 
   const errClass = errMsg ? "errmsg" : "offscreen";
 
