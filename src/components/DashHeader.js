@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PulseLoader from 'react-spinners/PulseLoader';
 import {
     faFileCirclePlus,
     faFilePen,
@@ -120,7 +121,7 @@ const DashHeader = () => {
 
     let buttonContent;
     if(isLoading){
-        buttonContent = <p>Logging Out ...</p>
+        buttonContent = <PulseLoader color={"#FFF"} />
     } else {
         buttonContent = (
             <>
